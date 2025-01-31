@@ -1,9 +1,10 @@
 const asyncHandler = (requestHandler) => {
-  (req, res, next) => {
+  return (req, res, next) => {
     Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
   };
 };
 
+export { asyncHandler };
 // ager try catch wala code rakhna chaho to wo bhi kr sakte hen
 // const asyncHandler = (fn) => async (req ,res , next)=>{
 //     try {
